@@ -1,3 +1,5 @@
+(* ::Package:: *)
+
 SetDirectory[ParentDirectory[NotebookDirectory[]]]
 
 
@@ -22,3 +24,6 @@ opToTeX[a] := "\\sigma"
 repToTeX[rep[1]] := "I^+"
 repToTeX[rep[2]] := "I^-"
 Print[toTeX[eq]]
+
+
+FilePrint[FileNameJoin[{$TemporaryDirectory,"Ising.py" ]
