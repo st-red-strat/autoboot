@@ -702,12 +702,12 @@ makeSDP[z:eqn[eq_List]] := Module[{mat, tmp, sec = sector[z], secs = <||>, scaln
 		sdpobj[secs, scalnum, keys[val], mat]
 	]
 
-toString[F[x_, y_, z_, w_]] := TemplateApply["get(F, \"`x`\", \"`y`\", \"`z`\", \"`w`\")", <|"x"->x, "y"->y, "z"->z, "w"->w|>];
-toString[H[x_, y_, z_, w_]] := TemplateApply["get(H, \"`x`\", \"`y`\", \"`z`\", \"`w`\")", <|"x"->x, "y"->y, "z"->z, "w"->w|>];
-toString[Fp[x_, y_, z_, w_, 0]] := TemplateApply["get(F, \"`x`\", \"`y`\", \"`z`\", \"`w`\")", <|"x"->x, "y"->y, "z"->z, "w"->w|>];
-toString[Hp[x_, y_, z_, w_, 0]] := TemplateApply["get(H, \"`x`\", \"`y`\", \"`z`\", \"`w`\")", <|"x"->x, "y"->y, "z"->z, "w"->w|>];
-toString[Fp[x_, y_, z_, w_, o_]] := TemplateApply["get(F, \"`x`\", \"`y`\", \"`z`\", \"`w`\", \"`o`\")", <|"x"->x, "y"->y, "z"->z, "w"->w, "o"->o|>];
-toString[Hp[x_, y_, z_, w_, o_]] := TemplateApply["get(H, \"`x`\", \"`y`\", \"`z`\", \"`w`\", \"`o`\")", <|"x"->x, "y"->y, "z"->z, "w"->w, "o"->o|>];
+toCboot[F[x_, y_, z_, w_]] := TemplateApply["get(F, \"`x`\", \"`y`\", \"`z`\", \"`w`\")", <|"x"->x, "y"->y, "z"->z, "w"->w|>];
+toCboot[H[x_, y_, z_, w_]] := TemplateApply["get(H, \"`x`\", \"`y`\", \"`z`\", \"`w`\")", <|"x"->x, "y"->y, "z"->z, "w"->w|>];
+toCboot[Fp[x_, y_, z_, w_, 0]] := TemplateApply["get(F, \"`x`\", \"`y`\", \"`z`\", \"`w`\")", <|"x"->x, "y"->y, "z"->z, "w"->w|>];
+toCboot[Hp[x_, y_, z_, w_, 0]] := TemplateApply["get(H, \"`x`\", \"`y`\", \"`z`\", \"`w`\")", <|"x"->x, "y"->y, "z"->z, "w"->w|>];
+toCboot[Fp[x_, y_, z_, w_, o_]] := TemplateApply["get(F, \"`x`\", \"`y`\", \"`z`\", \"`w`\", \"`o`\")", <|"x"->x, "y"->y, "z"->z, "w"->w, "o"->o|>];
+toCboot[Hp[x_, y_, z_, w_, o_]] := TemplateApply["get(H, \"`x`\", \"`y`\", \"`z`\", \"`w`\", \"`o`\")", <|"x"->x, "y"->y, "z"->z, "w"->w, "o"->o|>];
 
 (*
 secs = <|op[op, rep[1], 1, 1] -> 3, ...|>
@@ -734,7 +734,7 @@ toCboot[sdpobj[secs_, scalarnum_, vals_, mat_]] :=
 		make[m_, init_] := Module[{tmp = <||>},
 			Scan[(tmp[#] = init[#]) &, Keys[init]];
 			blk = <||>; f[m];
-			tmp["bl"] = tensorToString[Keys[blk], toString];
+			tmp["bl"] = tensorToString[Keys[blk], toCboot];
 			tmp["mats"] = If[Length[m[[1]]] != 1, tensorToString[m, convert], tensorToString[#[[1, 1]] & /@ m , convert]];
 			tmp];
 		Do[add[rmats, make[mat[s, n], <|"r" -> s[[2]], "p" -> (1 - s[[4]])/2, "n" -> n - 1|>]], {s, Keys[secs]}, {n, secs[s]}];
