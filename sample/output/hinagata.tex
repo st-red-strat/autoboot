@@ -1,0 +1,90 @@
+\documentclass[dvipdfmx]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{bbm}
+\usepackage{braket}
+\usepackage[english]{babel}
+\usepackage{here}
+\usepackage{comment}
+\usepackage{longtable}
+\usepackage{cancel}
+\allowdisplaybreaks[4]
+\usepackage{tikz}
+\usepackage{simpler-wick}
+\newcommand{\op}[1]{\hat{#1}}
+% \begin{comment}
+\usetikzlibrary{positioning}
+  \makeatletter
+%  \renewcommand{\theequation}{\arabic{chapter}-\arabic{section}-\arabic{equation}}
+  \renewcommand{\theequation}{\arabic{section}.
+  %\arabic{subsection}.
+  \arabic{equation}}
+  \@addtoreset{equation}{section}
+  \@addtoreset{equation}{subsection}
+% \end{comment}
+  \makeatother
+  \usepackage[left=25truemm,top=20truemm,bottom=20truemm,right=25truemm]{geometry}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{url}
+\title{auto boot test}
+\author{35-196062\hspace{15pt}Shin TOITA\thanks{e-mail: shintaro.toita@ipmu.jp}}
+\begin{document}
+\newgeometry{left=25truemm,top=-5truemm,bottom=20truemm,right=25truemm}
+\maketitle
+\vspace{-4zh}
+\section{Ising}
+result
+\begin{align}
+  0&=F^{\sigma \sigma,\sigma \sigma}_{-,1}
+    +{\lambda_{\sigma \sigma \epsilon}}^2 
+      F^{\sigma \sigma,\sigma \sigma}_{-,\epsilon}
+    +\sum_{\op{O}^+:{I^+}}{\lambda_{\sigma \sigma \op{O}}}^2 
+      F^{\sigma \sigma,\sigma \sigma}_{-,\op{O}}
+,\\
+  0&=F^{\epsilon \epsilon,\epsilon \epsilon}_{-,1}
+    +{\lambda_{\epsilon \epsilon \epsilon}}^2 
+      F^{\epsilon \epsilon,\epsilon \epsilon}_{-,\epsilon}
+    +\sum_{\op{O}^+:{I^+}}{\lambda_{\epsilon \epsilon \op{O}}}^2 
+      F^{\epsilon \epsilon,\epsilon \epsilon}_{-,\op{O}}
+,\\
+  0&={\lambda_{\sigma \sigma \epsilon}}^2 
+    F^{\epsilon \sigma,\epsilon \sigma}_{-,\sigma}
+  +\sum_{\op{O}^-:{I^-}}{\lambda_{\epsilon \sigma \op{O}}}^2 
+    F^{\epsilon \sigma,\epsilon \sigma}_{-,\op{O}}
+  +\sum_{\op{O}^+:{I^-}}{\lambda_{\epsilon \sigma \op{O}}}^2 
+    F^{\epsilon \sigma,\epsilon \sigma}_{-,\op{O}}
+,\\
+  0&=F^{\epsilon \epsilon,\sigma \sigma}_{-,1}
+    +{\lambda_{\sigma \sigma \epsilon}}^2 
+      F^{\epsilon \sigma,\sigma \epsilon}_{-,\sigma}
+    +\lambda_{\sigma \sigma \epsilon} \lambda_{\epsilon \epsilon \epsilon} 
+      F^{\epsilon \epsilon,\sigma \sigma}_{-,\epsilon}
+\notag\\&\qquad\qquad
+      -\sum_{\op{O}^-:{I^-}}{\lambda_{\epsilon \sigma \op{O}}}^2 
+      F^{\epsilon \sigma,\sigma \epsilon}_{-,\op{O}}
+    +\sum_{\op{O}^+:{I^-}}{\lambda_{\epsilon \sigma \op{O}}}^2 
+      F^{\epsilon \sigma,\sigma \epsilon}_{-,\op{O}}
+    +\sum_{\op{O}^+:{I^+}}\lambda_{\sigma \sigma \op{O}} 
+      \lambda_{\epsilon \epsilon \op{O}} ]
+      F^{\epsilon \epsilon,\sigma \sigma}_{-,\op{O}}
+,\\
+  0&=F^{\epsilon \epsilon,\sigma \sigma}_{+,1}
+    -{\lambda_{\sigma \sigma \epsilon}}^2 
+      F^{\epsilon \sigma,\sigma \epsilon}_{+,\sigma}
+    +\lambda_{\sigma \sigma \epsilon} \lambda_{\epsilon \epsilon \epsilon} 
+      F^{\epsilon \epsilon,\sigma \sigma}_{+,\epsilon}
+\notag\\&\qquad\qquad
+      +\sum_{\op{O}^-:{I^-}}{\lambda_{\epsilon \sigma \op{O}}}^2 
+      F^{\epsilon \sigma,\sigma \epsilon}_{+,\op{O}}
+    -\sum_{\op{O}^+:{I^-}}{\lambda_{\epsilon \sigma \op{O}}}^2 
+      F^{\epsilon \sigma,\sigma \epsilon}_{+,\op{O}}
+    +\sum_{\op{O}^+:{I^+}}\lambda_{\sigma \sigma \op{O}} 
+      \lambda_{\epsilon \epsilon \op{O}} 
+        F^{\epsilon \epsilon,\sigma \sigma}_{+,\op{O}}
+\end{align}
+\end{document}

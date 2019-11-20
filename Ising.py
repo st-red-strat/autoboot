@@ -8,7 +8,7 @@ from sage.rings.rational import Rational
 from sage.all import pi, e, euler_gamma, catalan, khinchin, glaisher, sin, cos, tan, sec, csc, cot, sinh, cosh, tanh, sech, csch, coth, asin, acos, atan, asec, acsc, acot, asinh, acosh, atanh, asech, acsch, acoth, sqrt, log, exp, I
 
 # <-- edit from here
-context = cb.context_for_scalar(epsilon=0.5, Lambda=15, Prec=8)
+context = cb.context_for_scalar(epsilon=0.5, Lambda=15, Prec=800)
 spins = list(range(27)) + [49, 50]
 nu_max = 14
 # {(r, s): d, ...} means operators in irrep r and spin s must have Delta >= d.
